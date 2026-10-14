@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Conheça as obras e o universo artístico de Kuroi Young."
+    >
+
+    <title>Portfólio da Kuroi</title>
+
+    <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Folha de estilos -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- JavaScript -->
+    <script src="./js/script.js" defer></script>
+</head>
+
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="site-logo" href="#inicio">
+            Kuroi Young
+        </a>
+
+        <nav aria-label="Navegação principal">
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre mim</a>
+            <a href="#criacoes">Criações</a>
+            <a href="#agridoce">Agridoce</a>
+            
+            <a href="#contatos">Contatos</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+            <img
+                class="hero-image"
+                src="imagens/capa.jpg"
+                alt="Imagem de capa do portfólio artístico"
+            >
+
+            <div class="hero-content">
+                <p class="hero-eyebrow">Arte e expressão</p>
+                <h1>Kuroi Young</h1>
+                <p class="hero-description">
+                    Uma frase que represente sua arte.
+                </p>
+
+                <a href="#criacoes" class="hero-link">
+                    Conheça minhas obras
+                </a>
+            </div>
+        </section>
+
+        <section class="about" id="sobre">
+            <div class="about-container">
+                <h2>Sobre mim</h2>
+                <p>
+                    Aqui ficará a apresentação da artista,
+                    sua trajetória, inspirações e técnicas.
+                </p>
+            </div>
+        </section>
+
+        <section class="gallery" id="criacoes">
+            <header class="section-header">
+                <h2>Minhas criações</h2>
+                <p>Uma seleção de trabalhos artísticos.</p>
+            </header>
+
+            <div class="gallery-grid">
+
+                <figure class="artwork">
+                    <button
+                        class="artwork-button"
+                        type="button"
+                        data-lightbox
+                        data-index="0"
+                        aria-label="Ampliar a obra Jardim"
+                    >
+                        <img
+                            src="imagens/obra-01.jpg"
+                            alt="Pintura intitulada Jardim"
+                            loading="lazy"
+                        >
+                    </button>
+                    <figcaption>Jardim</figcaption>
+                </figure>
+
+                <figure class="artwork">
+                    <button
+                        class="artwork-button"
+                        type="button"
+                        data-lightbox
+                        data-index="1"
+                        aria-label="Ampliar a obra Flores"
+                    >
+                        <img
+                            src="imagens/obra-02.jpg"
+                            alt="Obra artística intitulada Flores"
+                            loading="lazy"
+                        >
+                    </button>
+                    <figcaption>Flores</figcaption>
+                </figure>
+
+                <figure class="artwork">
+                    <button
+                        class="artwork-button"
+                        type="button"
+                        data-lightbox
+                        data-index="2"
+                        aria-label="Ampliar a obra Abstrato"
+                    >
+                        <img
+                            src="imagens/obra-03.jpg"
+                            alt="Obra abstrata"
+                            loading="lazy"
+                        >
+                    </button>
+                    <figcaption>Abstrato</figcaption>
+                </figure>
+
+            </div>
+        </section>
+
+
+<!-- Seção especial: quadrinho -->
+<section class="comic" id="agridoce">
+    <div class="comic-container">
+
+        <header class="section-header">
+            <p class="comic-eyebrow">Um universo em construção ✨</p>
+            <h2>Agridoce</h2>
+            <p>Conheça a história que está ganhando vida em cada desenho.</p>
+        </header>
+
+        <!-- Destaque principal -->
+        <div class="comic-feature">
+
+            <button
+                class="comic-cover"
+                type="button"
+                data-lightbox
+                aria-label="Ampliar a capa do quadrinho"
+            >
+                <img
+                    src="imagens/quadrinho-capa.jpg"
+                    alt="Capa do quadrinho"
+                    loading="lazy"
+                >
+                <span class="comic-image-hint">⌕ Ampliar imagem</span>
+            </button>
+
+            <div class="comic-description">
+                <span class="comic-label">Projeto autoral</span>
+
+                <p>
+                    Apresente aqui a história do seu quadrinho, seus
+                    personagens principais e o universo em que a trama
+                    acontece. Conte um pouco sobre as aventuras, os
+                    sentimentos e os mistérios que aguardam os leitores.
+                </p>
+
+                <p>
+                    Este é um espaço para compartilhar o processo criativo
+                    e convidar o público a conhecer mais sobre o projeto.
+                </p>
+
+                <span class="comic-decoration" aria-hidden="true">
+                    ✿ ✧ ♡ ✧ ✿
+                </span>
+            </div>
+
+        </div>
+
+        <!-- Galeria do quadrinho -->
+            <div class="comic-gallery-section">
+                    <h3>Um gostinho dessa história</h3>
+                    <p>Personagens, cenários e pequenos detalhes do projeto.</p>
+
+                    <div class="comic-gallery">
+
+                        <button
+                        class="comic-gallery-item"
+                        type="button"
+                        data-lightbox
+                        aria-label="Ampliar ilustração 1 do quadrinho"
+                        >
+                            <img
+                            src="imagens/quadrinho-01.jpg"
+                            alt="Ilustração do quadrinho: cena 1"
+                            loading="lazy"
+                            >
+                        </button>
+
+                        <button
+                        class="comic-gallery-item"
+                        type="button"
+                        data-lightbox
+                        aria-label="Ampliar ilustração 2 do quadrinho"
+                        >
+                            <img
+                            src="imagens/quadrinho-02.jpg"
+                            alt="Ilustração do quadrinho: cena 2"
+                            loading="lazy"
+                            >
+                        </button>
+
+                        <button
+                        class="comic-gallery-item"
+                        type="button"
+                        data-lightbox
+                        aria-label="Ampliar ilustração 3 do quadrinho"
+                        >
+                            <img
+                            src="imagens/quadrinho-03.jpg"
+                            alt="Ilustração do quadrinho: cena 3"
+                            loading="lazy"
+                            >
+                        </button>
+
+                        <button
+                        class="comic-gallery-item"
+                        type="button"
+                        data-lightbox
+                        aria-label="Ampliar ilustração 4 do quadrinho"
+                        >
+                            <img
+                            src="imagens/quadrinho-04.jpg"
+                            alt="Ilustração do quadrinho: cena 4"
+                            loading="lazy"
+                            >
+                        </button>
+
+                    </div>
+                 </div>
+
+             </div>
+        </section>
+
+
+
+
+        <section class="contacts" id="contatos">
+            <h2>Vamos conversar?</h2>
+            <p>Entre em contato para conhecer meu trabalho.</p>
+
+            <a
+                href="https://instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Instagram
+            </a>
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            © <span id="current-year"></span>
+            Kuori Young. Todos os direitos reservados.
+        </p>
+    </footer>
+
+    <!-- Janela de ampliação -->
+    <dialog
+        class="lightbox"
+        id="lightbox"
+        aria-label="Visualização ampliada das obras"
+    >
+        <div class="lightbox-content">
+            <button
+                class="lightbox-close"
+                type="button"
+                data-lightbox-close
+                aria-label="Fechar imagem ampliada"
+            >
+                &times;
+            </button>
+
+            <button
+                class="lightbox-prev"
+                type="button"
+                data-lightbox-prev
+                aria-label="Ver obra anterior"
+            >
+                &#10094;
+            </button>
+
+            <figure class="lightbox-figure">
+                <img class="lightbox-image" src="" alt="">
+                <figcaption class="lightbox-caption"></figcaption>
+            </figure>
+
+            <button
+                class="lightbox-next"
+                type="button"
+                data-lightbox-next
+                aria-label="Ver próxima obra"
+            >
+                &#10095;
+            </button>
+        </div>
+    </dialog>
+</body>
+</html>

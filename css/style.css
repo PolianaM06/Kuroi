@@ -1,0 +1,1094 @@
+/* ==================================================
+   1. VARIÁVEIS E IDENTIDADE VISUAL
+   ================================================== */
+
+:root {
+    color-scheme: light;
+
+    /* Paleta principal */
+    --color-pink: #FF5C9A;
+    --color-pink-light: #FF8AB3;
+    --color-yellow: #FFE45E;
+    --color-cream: #FFF8E8;
+    --color-green: #9BCB83;
+    --color-plum: #583B58;
+
+    /* Variações e superfícies */
+    --color-pink-dark: #D93676;
+    --color-green-dark: #527B43;
+    --color-white: #FFFFFF;
+    --color-border: rgb(88 59 88 / 12%);
+    --color-overlay: rgb(45 25 43 / 78%);
+
+    /* Fundos */
+    --color-background: var(--color-cream);
+    --color-text: var(--color-plum);
+    --color-accent: var(--color-pink);
+
+    /* Tipografia */
+    --font-body: "Nunito", sans-serif;
+    --font-heading: "Quicksand", sans-serif;
+
+    /* Layout */
+    --page-gutter: clamp(1.25rem, 5vw, 5rem);
+    --content-width: 1200px;
+    --header-height: 76px;
+
+    /* Formas e efeitos */
+    --radius-small: 12px;
+    --radius-medium: 20px;
+    --radius-large: 32px;
+    --radius-pill: 999px;
+
+    --shadow-soft: 0 8px 24px rgb(88 59 88 / 8%);
+    --shadow-hover: 0 14px 30px rgb(88 59 88 / 15%);
+
+    --transition: 220ms ease;
+}
+
+
+/* ==================================================
+   2. RESET E CONFIGURAÇÕES GERAIS
+   ================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    overflow-wrap: break-word;
+}
+
+body,
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    color: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--color-green-dark);
+    outline-offset: 4px;
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+    margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+::selection {
+    color: var(--color-plum);
+    background-color: var(--color-yellow);
+}
+
+
+/* ==================================================
+   3. CABEÇALHO E NAVEGAÇÃO
+   ================================================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+    min-height: var(--header-height);
+    padding: 0 var(--page-gutter);
+
+    background-color: rgb(255 248 232 / 95%);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(12px);
+}
+
+.site-logo {
+    flex-shrink: 0;
+    color: var(--color-pink);
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 2vw, 1.8rem);
+    font-weight: 800;
+    transition: color var(--transition);
+}
+
+.site-logo:hover {
+    color: var(--color-pink-dark);
+}
+
+.site-header nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.site-header nav a {
+    position: relative;
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: color var(--transition);
+}
+
+.site-header nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 3px;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-pink);
+
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+}
+
+.site-header nav a:hover {
+    color: var(--color-pink-dark);
+}
+
+.site-header nav a:hover::after,
+.site-header nav a:focus-visible::after {
+    transform: scaleX(1);
+}
+
+
+/* ==================================================
+   4. CAPA / APRESENTAÇÃO
+   ================================================== */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: grid;
+    align-items: center;
+    min-height: clamp(32rem, 65vw, 46rem);
+
+    padding: clamp(3rem, 7vw, 6rem) var(--page-gutter);
+
+    background-color: var(--color-pink-light);
+}
+
+/* Imagem de fundo da capa */
+.hero-image {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Camada para melhorar a leitura do texto */
+.hero::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgb(255 248 232 / 25%),
+        transparent 75%
+    );
+
+    content: "";
+    pointer-events: none;
+}
+
+.hero-content {
+    width: min(100%, 470px);
+    padding: clamp(1.75rem, 4vw, 3rem);
+
+    background-color: rgb(255 248 232 / 94%);
+    border: 2px solid rgb(255 255 255 / 85%);
+    border-radius: 45% 45% 24px 24px / 16% 16% 24px 24px;
+
+    box-shadow: var(--shadow-hover);
+    backdrop-filter: blur(8px);
+
+    animation: fade-up 700ms ease both;
+}
+
+.hero-eyebrow {
+    margin-bottom: 0.75rem;
+    color: var(--color-pink-dark);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+}
+
+.hero-content h1 {
+    margin-bottom: 1rem;
+    color: var(--color-pink);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+.hero-description {
+    margin-bottom: 1.75rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.hero-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+
+    min-height: 48px;
+    padding: 0.8rem 1.5rem;
+
+    color: var(--color-white);
+    background-color: var(--color-pink);
+    border-radius: var(--radius-pill);
+
+    font-weight: 800;
+    box-shadow: 0 5px 14px rgb(255 92 154 / 22%);
+
+    transition:
+        background-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.hero-link:hover {
+    background-color: var(--color-pink-dark);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+}
+
+.hero-link:active {
+    transform: translateY(0);
+}
+
+
+/* ==================================================
+   5. CABEÇALHOS DAS SEÇÕES
+   ================================================== */
+
+.section-header {
+    max-width: 700px;
+    margin: 0 auto clamp(2rem, 4vw, 3rem);
+    text-align: center;
+}
+
+.section-header h2,
+.about h2,
+.contacts h2 {
+    margin-bottom: 0.75rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+}
+
+.section-header h2 {
+    color: var(--color-plum);
+}
+
+.section-header p {
+    margin-bottom: 0;
+}
+
+
+/* ==================================================
+   6. GALERIA DE CRIAÇÕES
+   ================================================== */
+
+.gallery {
+    position: relative;
+    padding: clamp(4rem, 8vw, 7rem) var(--page-gutter);
+    background-color: var(--color-cream);
+}
+
+/* Pequeno detalhe decorativo */
+.gallery .section-header::after {
+    display: block;
+    width: 64px;
+    height: 5px;
+    margin: 1.25rem auto 0;
+
+    background-color: var(--color-yellow);
+    border-radius: var(--radius-pill);
+
+    content: "";
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+
+    width: min(100%, var(--content-width));
+    margin-inline: auto;
+}
+
+.artwork {
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.artwork-button {
+    display: block;
+    width: 100%;
+    padding: 0;
+
+    overflow: hidden;
+    cursor: zoom-in;
+
+    background-color: var(--color-pink-light);
+    border: 3px solid transparent;
+    border-radius: var(--radius-small);
+
+    box-shadow: var(--shadow-soft);
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+}
+
+.artwork-button img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+
+    transition: transform 350ms ease;
+}
+
+.artwork-button:hover {
+    border-color: var(--color-pink);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+}
+
+.artwork-button:hover img {
+    transform: scale(1.05);
+}
+
+.artwork figcaption {
+    padding: 0.8rem 0.25rem 0;
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+
+/* ==================================================
+   7. JANELA DE AMPLIAÇÃO / LIGHTBOX
+   ================================================== */
+
+.lightbox {
+    width: min(92vw, 1000px);
+    max-width: none;
+    max-height: 92dvh;
+
+    padding: 0;
+    overflow: visible;
+
+    color: var(--color-plum);
+    background-color: transparent;
+    border: none;
+}
+
+.lightbox::backdrop {
+    background-color: var(--color-overlay);
+    backdrop-filter: blur(5px);
+}
+
+.lightbox-content {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) 48px;
+    align-items: center;
+    gap: 0.75rem;
+
+    width: 100%;
+    max-height: 92dvh;
+    padding: clamp(1rem, 3vw, 2rem);
+
+    background-color: var(--color-cream);
+    border: 3px solid var(--color-white);
+    border-radius: var(--radius-large);
+
+    box-shadow: 0 20px 80px rgb(0 0 0 / 25%);
+}
+
+.lightbox-figure {
+    display: grid;
+    justify-items: center;
+    gap: 0.75rem;
+
+    min-width: 0;
+    max-height: calc(92dvh - 4rem);
+    margin: 0;
+}
+
+.lightbox-image {
+    width: 100%;
+    max-width: 100%;
+    max-height: calc(92dvh - 11rem);
+
+    object-fit: contain;
+    border-radius: var(--radius-small);
+}
+
+.lightbox-caption {
+    width: 100%;
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    display: grid;
+    place-items: center;
+
+    width: 44px;
+    height: 44px;
+    padding: 0;
+
+    color: var(--color-white);
+    background-color: var(--color-pink);
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition),
+        transform var(--transition);
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background-color: var(--color-pink-dark);
+    transform: scale(1.08);
+}
+
+.lightbox-close {
+    position: absolute;
+    z-index: 2;
+    top: 0.5rem;
+    right: 0.5rem;
+
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    justify-self: center;
+    font-size: 1.15rem;
+}
+
+.lightbox button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ==================================================
+   8. SEÇÃO SOBRE MIM
+   ================================================== */
+
+.about {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: clamp(4rem, 8vw, 7rem) var(--page-gutter);
+
+    background-color: var(--color-yellow);
+}
+
+/* Formas orgânicas no fundo */
+.about::before,
+.about::after {
+    position: absolute;
+    z-index: -1;
+
+    width: 200px;
+    height: 200px;
+
+    border: 3px solid rgb(255 255 255 / 40%);
+    border-radius: 50%;
+
+    content: "";
+    pointer-events: none;
+}
+
+.about::before {
+    top: -100px;
+    right: 8%;
+}
+
+.about::after {
+    bottom: -120px;
+    left: 4%;
+    width: 250px;
+    height: 250px;
+}
+
+.about-container {
+    width: min(100%, 900px);
+    margin-inline: auto;
+    padding: clamp(2rem, 5vw, 4rem);
+
+    background-color: rgb(255 248 232 / 94%);
+    border: 2px solid rgb(255 255 255 / 85%);
+    border-radius: 45% 45% 24px 24px / 12% 12% 24px 24px;
+
+    box-shadow: var(--shadow-soft);
+}
+
+.about h2 {
+    color: var(--color-pink-dark);
+}
+
+.about-container p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==================================================
+   9. CONTATOS
+   ================================================== */
+
+.contacts {
+    padding: clamp(4rem, 8vw, 6rem) var(--page-gutter);
+    text-align: center;
+
+    background-color: var(--color-pink-light);
+}
+
+.contacts h2 {
+    color: var(--color-plum);
+}
+
+.contacts p {
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+.contacts > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+    padding: 0.8rem 1.5rem;
+
+    color: var(--color-white);
+    background-color: var(--color-plum);
+    border-radius: var(--radius-pill);
+
+    font-weight: 800;
+    transition:
+        background-color var(--transition),
+        transform var(--transition);
+}
+
+.contacts > a:hover {
+    background-color: var(--color-pink-dark);
+    transform: translateY(-3px);
+}
+
+
+/* ==================================================
+   10. RODAPÉ
+   ================================================== */
+
+.site-footer {
+    padding: 1.5rem var(--page-gutter);
+
+    color: var(--color-cream);
+    background-color: var(--color-plum);
+
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.site-footer p {
+    margin-bottom: 0;
+}
+
+
+/* ==================================================
+   11. ANIMAÇÕES
+   ================================================== */
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==================================================
+   12. TABLETS
+   ================================================== */
+
+@media (max-width: 900px) {
+    :root {
+        --header-height: 72px;
+    }
+
+    .site-header {
+        gap: 1rem;
+    }
+
+    .site-header nav {
+        gap: 1rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+
+    .hero {
+        min-height: 36rem;
+    }
+
+    .hero-content {
+        width: min(100%, 430px);
+    }
+}
+
+
+/* ==================================================
+   13. CELULARES
+   ================================================== */
+
+@media (max-width: 600px) {
+    :root {
+        --page-gutter: 1.1rem;
+        --header-height: auto;
+    }
+
+    html {
+        scroll-padding-top: 1rem;
+    }
+
+    .site-header {
+        position: relative;
+
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+
+        padding: 0.85rem var(--page-gutter);
+    }
+
+    .site-logo {
+        font-size: 1.5rem;
+    }
+
+    .site-header nav {
+        justify-content: center;
+        gap: 0.25rem 1rem;
+    }
+
+    .site-header nav a {
+        padding: 0.35rem 0;
+        font-size: 0.85rem;
+    }
+
+    .hero {
+        min-height: 36rem;
+        padding-block: 3rem;
+        background-position: center;
+    }
+
+    .hero::before {
+        background: rgb(255 248 232 / 15%);
+    }
+
+    .hero-content {
+        width: 100%;
+        padding: 2rem 1.5rem;
+
+        border-radius: 35% 35% 20px 20px / 10% 10% 20px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.3rem, 11vw, 3.5rem);
+    }
+
+    .gallery-grid {
+        gap: 1rem;
+    }
+
+    .artwork-button img {
+        aspect-ratio: 1 / 1;
+    }
+
+    .artwork figcaption {
+        font-size: 0.85rem;
+    }
+
+    .lightbox {
+        width: 96vw;
+        max-height: 94dvh;
+    }
+
+    .lightbox-content {
+        grid-template-columns: 36px minmax(0, 1fr) 36px;
+        gap: 0.25rem;
+
+        max-height: 94dvh;
+        padding: 3.5rem 0.5rem 1rem;
+
+        border-radius: var(--radius-medium);
+    }
+
+    .lightbox-figure {
+        max-height: calc(94dvh - 5rem);
+    }
+
+    .lightbox-image {
+        max-height: calc(94dvh - 10rem);
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        width: 34px;
+        height: 34px;
+        font-size: 0.9rem;
+    }
+
+    .lightbox-close {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+
+    .about-container {
+        padding: 2rem 1.5rem;
+        border-radius: 35% 35% 20px 20px / 8% 8% 20px 20px;
+    }
+}
+
+
+/* ==================================================
+   14. ACESSIBILIDADE E MOVIMENTO REDUZIDO
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+.hero-content {
+    width: min(100%, 580px);
+    margin-inline: auto;
+
+    padding: clamp(1.75rem, 4vw, 3rem);
+
+    background-color: rgb(255 248 232 / 94%);
+    border: 2px solid rgb(255 255 255 / 85%);
+    border-radius: 45% 45% 24px 24px / 16% 16% 24px 24px;
+
+    box-shadow: var(--shadow-hover);
+    backdrop-filter: blur(8px);
+
+    text-align: center;
+
+    animation: fade-up 700ms ease both;
+}
+
+
+/* ==================================================
+   SEÇÃO ESPECIAL: QUADRINHO
+   ================================================== */
+
+.comic {
+    padding: clamp(4rem, 8vw, 7rem) var(--page-gutter);
+    background-color: #FFE8F0;
+    overflow: hidden;
+}
+
+.comic-container {
+    width: min(100%, var(--content-width));
+    margin-inline: auto;
+}
+
+.comic-eyebrow {
+    margin-bottom: 0.5rem;
+    color: var(--color-pink-dark);
+    font-weight: 800;
+}
+
+.comic-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+/* Ilustração principal */
+.comic-cover {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+
+    background-color: var(--color-yellow);
+    border: 5px solid var(--color-white);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-hover);
+
+    cursor: zoom-in;
+    transform: rotate(-1deg);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.comic-cover:hover {
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow: 0 18px 36px rgb(88 59 88 / 18%);
+}
+
+.comic-cover img {
+    display: block;
+    width: 100%;
+    max-height: 650px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.comic-image-hint {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+
+    padding: 0.45rem 0.8rem;
+    color: var(--color-plum);
+    background-color: var(--color-cream);
+    border-radius: var(--radius-pill);
+
+    font-size: 0.8rem;
+    font-weight: 800;
+
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.comic-cover:hover .comic-image-hint,
+.comic-cover:focus-visible .comic-image-hint {
+    opacity: 1;
+}
+
+/* Título e sinopse */
+.comic-description {
+    padding: clamp(1.5rem, 4vw, 3rem);
+    background-color: var(--color-cream);
+    border: 2px solid var(--color-white);
+    border-radius: 12px 32px 32px 32px;
+    box-shadow: var(--shadow-soft);
+}
+
+.comic-label {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.4rem 0.85rem;
+
+    color: var(--color-plum);
+    background-color: var(--color-yellow);
+    border-radius: var(--radius-pill);
+
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.comic-description h3 {
+    margin-bottom: 1.25rem;
+    color: var(--color-pink-dark);
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+}
+
+.comic-description p {
+    line-height: 1.9;
+}
+
+.comic-decoration {
+    display: block;
+    margin-top: 1.5rem;
+    color: var(--color-green-dark);
+    font-size: 1.4rem;
+    letter-spacing: 0.35rem;
+}
+
+/* Galeria secundária */
+.comic-gallery-section {
+    text-align: center;
+}
+
+.comic-gallery-section > h3 {
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.comic-gallery-section > p {
+    margin-bottom: 2rem;
+}
+
+.comic-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.comic-gallery-item {
+    display: block;
+    min-width: 0;
+    padding: 5px;
+    overflow: hidden;
+
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-small);
+    box-shadow: var(--shadow-soft);
+
+    cursor: zoom-in;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.comic-gallery-item:nth-child(even) {
+    transform: translateY(10px);
+}
+
+.comic-gallery-item:hover {
+    z-index: 1;
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+}
+
+.comic-gallery-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Tablet */
+@media (max-width: 800px) {
+    .comic-feature {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+
+    .comic-cover {
+        width: min(100%, 560px);
+        margin-inline: auto;
+    }
+
+    .comic-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 1.5rem;
+    }
+
+    .comic-gallery-item:nth-child(even) {
+        transform: none;
+    }
+}
+
+/* Celular */
+@media (max-width: 480px) {
+    .comic-description {
+        padding: 1.5rem;
+    }
+
+    .comic-gallery {
+        gap: 0.75rem;
+    }
+
+    .comic-gallery-item {
+        padding: 3px;
+    }
+}
