@@ -438,7 +438,7 @@ p {
 @media (max-width: 800px) {
 
     .gallery {
-        padding-inline: 1rem;
+        padding-inline: 0.1rem;
     }
 
     .gallery-grid {
