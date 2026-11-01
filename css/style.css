@@ -373,9 +373,9 @@ p {
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(1rem, 2vw, 1.5rem);
+    gap: 0.1rem;
 
-    width: min(100%, var(--content-width));
+    width: min(100%, 1000p);
     margin-inline: auto;
 }
 
@@ -406,7 +406,7 @@ p {
 
 .artwork-button img {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
 
     transition: transform 350ms ease;
@@ -1018,7 +1018,7 @@ p {
 .comic-gallery {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(0.75rem, 2vw, 1.5rem);
+    gap: 2.0rem;
 }
 
 .comic-gallery-item {
@@ -1054,6 +1054,12 @@ p {
     aspect-ratio: 3 / 4;
     object-fit: cover;
     border-radius: 8px;
+}
+
+.comic-gallery {
+    width: 100%;
+    max-width: 1000px;
+    margin-inline: auto;
 }
 
 /* Tablet */
