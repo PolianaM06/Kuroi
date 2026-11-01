@@ -431,6 +431,7 @@ p {
 }
 
 
+
 /* ==================================================
    6.1. RESPONSIVIDADE DA GALERIA
    ================================================== */
@@ -438,17 +439,32 @@ p {
 @media (max-width: 800px) {
 
     .gallery {
-        padding-inline: 0.1rem;
+        padding: 3rem 0.25rem;
     }
 
     .gallery-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.05rem;
+        gap: 0.15rem;
         width: 100%;
     }
 
-}
+    .artwork {
+        padding: 0;
+        margin: 0;
+    }
 
+    .artwork-button {
+        border-width: 1px;
+        border-radius: 4px;
+        box-shadow: none;
+    }
+
+    .artwork figcaption {
+        padding: 0.2rem 0.1rem 0.5rem;
+        font-size: 0.85rem;
+    }
+
+}
 
 
 /* ==================================================
