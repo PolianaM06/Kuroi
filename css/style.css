@@ -436,9 +436,9 @@ p {
    6.1. RESPONSIVIDADE DA GALERIA
    ================================================== */
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
     .gallery {
-        padding: 3rem 1rem;
+        padding: 3rem 0.8rem;
     }
 
     .gallery-grid {
