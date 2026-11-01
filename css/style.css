@@ -437,15 +437,13 @@ p {
    ================================================== */
 
 @media (max-width: 800px) {
-
     .gallery {
-        padding: 3rem 0.25rem;
+        padding: 3rem 0.5rem;
     }
 
     .gallery-grid {
-        display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 2px;
+        gap: 0.2rem;
         width: 100%;
     }
 
@@ -453,19 +451,6 @@ p {
         margin: 0;
         padding: 0;
     }
-
-    .artwork-button {
-        width: 100%;
-        border-width: 1px;
-        border-radius: 4px;
-        box-shadow: none;
-    }
-
-    .artwork figcaption {
-        padding: 0.2rem 0.1rem 0.5rem;
-        font-size: 0.85rem;
-    }
-
 }
 
 
