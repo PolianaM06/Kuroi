@@ -435,10 +435,10 @@ p {
    6.1. RESPONSIVIDADE DA GALERIA
    ================================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 
     .gallery {
-        padding-inline: 0.5rem;
+        padding-inline: 1rem;
     }
 
     .gallery-grid {
