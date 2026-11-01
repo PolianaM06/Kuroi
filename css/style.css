@@ -347,6 +347,7 @@ p {
 }
 
 
+
 /* ==================================================
    6. GALERIA DE CRIAÇÕES
    ================================================== */
@@ -375,7 +376,7 @@ p {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.1rem;
 
-    width: min(100%, 1000p);
+    width: min(100%, 1400px);
     margin-inline: auto;
 }
 
@@ -428,6 +429,26 @@ p {
     font-weight: 800;
     text-align: center;
 }
+
+
+/* ==================================================
+   6.1. RESPONSIVIDADE DA GALERIA
+   ================================================== */
+
+@media (max-width: 600px) {
+
+    .gallery {
+        padding-inline: 1rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.6rem;
+        width: 100%;
+    }
+
+}
+
 
 
 /* ==================================================
